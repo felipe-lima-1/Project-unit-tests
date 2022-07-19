@@ -42,4 +42,6 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+let felipe = productDetails('vodka', 'Agua de coco');
+console.log(felipe);
 module.exports = productDetails;

@@ -30,14 +30,30 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se productDetails é uma função.
-    // Teste se o retorno da função é um array.
-    // Teste se o array retornado pela função contém dois itens dentro.
-    // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    // Teste se os dois productIds terminam com 123.
+  it('Verifica se a função `productDetails` é uma função', () => {
+    expect(typeof (productDetails)).toBe('function')
+  });
+  // it('Verifica se a função `productDetails` é um array', () => {
+  //   expect(productDetails(['vodka', 'agua de coco'])).toBe('array')
+  // });
+  it('Verifica se array retornado pela função contém dois itens dentro', () => {
+    expect(Object.keys (productDetails('vodka', 'agua de coco'))).toHaveLength(2)
+  });
+  it('Verifica se os dois itens dentro do array retornado pela função são objetos', () => {
+    expect(typeof (productDetails('vodka', 'agua de coco')[0])).toBe('object')
+    expect(typeof (productDetails('vodka', 'agua de coco')[1])).toBe('object')
+  });
+  it('Verifica se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si', () => {
+    expect(productDetails('vodka', 'agua de coco')[0]).not.toBe(productDetails('vodka', 'agua de coco')[1])
+  });
+  it('Verifica se os dois productIds terminam com 123', () => {
+    expect(productDetails('vodka', 'agua de coco')[0].details.productId.endsWith('123')).toBe(true)
   });
 });
+// ESCREVA SEUS TESTES ABAIXO:
+// Teste se productDetails é uma função.
+// Teste se o retorno da função é um array.
+// Teste se o array retornado pela função contém dois itens dentro.
+// Teste se os dois itens dentro do array retornado pela função são objetos.
+// Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
+// Teste se os dois productIds terminam com 123.
